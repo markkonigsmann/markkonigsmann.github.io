@@ -7,17 +7,71 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Top Navigation Bar -->
+  <div class="top-bar">
+    <div class="site-title"> <a href="index.html"><button>Website Title</button></a></div>
+    <div class="top-links">
+      <a href="#"><button>contact</button></a>
+      <a href="#"><button>index</button></a>
+    </div>
+  </div>
+
+  <!-- Main Header -->
   <header>
-    <h1>Mark Konigsmann</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="essays/essay1.html">Essays</a>
-    </nav>
+    <h1>Header</h1>
   </header>
 
+  <!-- Dashboard Section -->
+  <section class="dashboard">
+    <!-- Column 1: Info -->
+    <div class="dashboard-column">
+      <div class="block-title">Info</div>
+      <div class="block-subtitle">Mark writes about topics in the built environment.</div>
+      <div class="block">Started <span class="right">over 2 years ago</span></div>
+      <div class="block">Modified <span class="right">over 1 year ago</span></div>
+      <div class="block">Posts <span class="right">64</span></div>
+      <div class="block">Visitors <span class="right">7</span></div>
+    </div>
+
+    <!-- Column 2: Recent Works -->
+    <div class="dashboard-column">
+      <div class="block-title">Recent Works</div>
+      <div class="block-subtitle"><a href="#">Essay 1</a></div>
+      <div class="block-subtitle"><a href="#">Contact</a></div>
+    </div>
+
+    <!-- Column 3: Links -->
+    <div class="dashboard-column">
+      <div class="block-title">Links</div>
+      <div class="block-subtitle"><a href="#">resume.pdf</a></div>
+      <div class="block-subtitle"><a href="#">Instagram</a></div>
+    </div>
+  </section>
+
+  <!-- Card Grid Section -->
   <main>
-    <h2>Welcome</h2>
-    <p>This is my personal site for essays, writing, and ideas.</p>
+    <div class="card">
+      <p>
+        It is no coincidence that the word "religion" comes from <em>relegare</em>, to focus the attention...
+      </p>
+      <small>Attention and rituals</small>
+    </div>
+    <div class="card">
+      <img src="art_as_device_2015.jpg" alt="Art as Device PDF" style="width:100%;">
+      <small>art_as_device_2015.pdf</small>
+    </div>
+    <div class="card">
+      <p>
+        This is how life becomes nothing and disappears. Automatization eats things...
+      </p>
+      <small>Viktor Shklovsky, Art as Device</small>
+    </div>
+    <div class="card">
+      <p>
+        We get used to horrible things and stop fearing them...
+      </p>
+      <small>Viktor Shklovsky, Art as Device</small>
+    </div>
   </main>
 
   <footer>

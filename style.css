@@ -1,15 +1,21 @@
 /* Base styling */
+:root {
+  --text-primary: #111;
+  --text-accent: #555;
+}
+
 body {
   font-family: Helvetica, 'system-ui';
-  background: #000;
-  color: #fff;
+  /*background: #000;*/
+  transition: background 0.5s ease;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.2;
   padding: .8rem;
 }
 
 a {
-  color: #888;
+  color: var(--text-accent);
   text-decoration: none;
   padding-right: 0.2rem;
   display: inline-block;
@@ -19,9 +25,105 @@ a:hover {
   text-decoration: underline;
 }
 
+#cloud-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  top: 10vh;
+  width: 200vw;
+  height: 60vh;
+  background: url('https://www.transparenttextures.com/patterns/clouds.png'); /* or use a transparent PNG/SVG */
+  background-repeat: repeat;
+  opacity: 0.85;
+  animation: driftClouds 60s linear infinite;
+  filter: blur(5px);
+}
+
+#aurora-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 300vw;
+  height: 100vh;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at center, rgba(0, 255, 150, 0.15) 0%, transparent 70%);
+  animation: aurora-drift 20s ease-in-out infinite alternate;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+#star-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.25; transform: scale(.88); }
+  100% { opacity: .3; transform: scale(1.09); }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.25; transform: scale(.82); }
+  100% { opacity: .28; transform: scale(1.05); }
+}
+
+@keyframes aurora-drift {
+  0% { transform: translateX(-60%) scaleY(1); }
+  100% { transform: translateX(-40%) scaleY(1.2); }
+}
+
+@keyframes driftClouds {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* very fine grain */
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
 /* Top Bar */
 .top-bar {
-  color: #888;
+  color: var(--text-accent);
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -32,7 +134,7 @@ a:hover {
 .navbar-link {
   background: transparent;
   border: none;
-  color: #888;
+  color: var(--text-accent);
   font-size: 0.8rem;
   padding: 0.2rem 0.5rem;
   cursor: pointer;
@@ -51,7 +153,7 @@ header {
 h1 {
   font-size: 1.6rem;
   font-weight: 600;
-  color:#ccc;
+  color: var(--text-primary);
 }
 
 /* Dashboard Section */
@@ -71,20 +173,20 @@ h1 {
 }
 
 .block-title {
-  color:#888;
+  color: var(--text-accent);
   font-weight: strong;
-  border-bottom: #888 .01em solid;
+  border-bottom:var(--text-accent) .01em solid;
   margin-right: .5rem;
   margin-top: 1rem;
 }
 
 .block-subtitle {
-  color:#ccc;
+  color: var(--text-primary);
   margin-top: .2rem;
 }
 
 .block {
-  color:#888;
+  color: var(--text-accent);
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   padding-right: .5rem;
@@ -92,11 +194,11 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: .01rem solid #888;
+  border-bottom: .01rem var(--text-accent) solid;
 }
 
 .block a {
-  color:#888;
+  color: var(--text-accent);
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   padding-right: .2rem;
@@ -112,6 +214,41 @@ main {
   padding: 3rem;
 }
 
+.modal {
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+  width: 400px;
+  height: 500px;
+  background: #1e1e1e;
+  color: white;
+  border: 1px solid #888;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  overflow: auto;
+  padding: 1rem;
+  z-index: 1000;
+  resize: both;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+  margin-bottom: 1rem;
+}
+
+.modal-content {
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+}
+
+.close-button {
+  cursor: pointer;
+  padding: 0 0.5rem;
+  font-weight: bold;
+}
+
 .card {
   height: 13rem;
   display: flex;
@@ -122,28 +259,29 @@ main {
 .card-content {
   flex: 0 0 10rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.card-content img {
+/*.card-content img { 
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   border: none;
-}
+} */
 
 .card-caption {
   flex: 0 0 3rem;
   margin-top: 0.2rem;
-  color: #ccc;
+  color: var(--text-primary);
 }
 
 /* Footer */
 footer {
   margin-top: 1.5rem;
-  border-top: .01em solid #333;
+  border-top: .1em var(--text-accent);
   padding-top: .5rem;
-  color: #888;
+  color: var(--text-accent);
 }
 
 /* Right-aligned text inside block rows */

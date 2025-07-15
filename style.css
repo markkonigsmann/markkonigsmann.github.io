@@ -83,6 +83,15 @@ h1 {
   margin-top: .2rem;
 }
 
+.block-subtitle a {
+  text-decoration: none;;
+}
+
+.block-subtitle i {
+  pointer-events: none;
+}
+
+
 .block {
   color:#888;
   padding-top: 0.2rem;

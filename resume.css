@@ -1,0 +1,124 @@
+.resume-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 3rem;
+    height: 100vh;            /* ensure full viewport height */
+    overflow: hidden;         /* prevent double scrollbars */
+}
+  
+.resume-left {
+    flex: 1.5;
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    gap: 1rem;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 3rem 0; /* vertical padding only */
+  }  
+  
+  .resume-left h1 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+  
+  .profile-pic {
+    width: 100%;
+    max-width: 200px;      /* limit how wide it gets */
+    aspect-ratio: 1 / 1;    /* maintain square shape */
+    overflow: hidden;       /* clip anything that overflows */
+    border-radius: 0.05rem; /* optional: slight rounding */
+    margin-bottom: 1rem;
+  }
+  
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* crop to fill square, no stretching */
+    display: block;
+  }  
+  
+  .resume-left a {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-decoration: underline;
+  }
+  
+  .resume-right {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 50rem;
+    overflow-y: auto;
+    max-height: 100vh;
+    padding: 3rem 1rem 3rem 0;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+  
+  
+  .resume-section h2 {
+    font-size: 0.9rem;
+    color: #888;
+    border-bottom: 1px solid #444;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .job {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .job-dates {
+    width: 8rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    font-size: 0.75rem;
+    color: #aaa;
+    white-space: nowrap;       /* keep on one line */
+    overflow: hidden;
+    text-overflow: ellipsis;   /* optional: add "…" for long content */
+  }  
+  
+  .job-description p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #ccc;
+  }
+  
+  @media (max-width: 768px) {
+    
+    .resume-wrapper {
+      flex-direction: column;
+      height: auto;
+      overflow: visible;
+    }
+  
+    .resume-left,
+    .resume-right {
+      position: static;
+      max-width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+  
+    .resume-right {
+      padding-right: 0;
+      padding-top: 0;
+    }
+  }
+  

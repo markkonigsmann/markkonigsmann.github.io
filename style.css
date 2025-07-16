@@ -55,6 +55,12 @@ h1 {
 }
 
 /* Dashboard Section */
+
+.right {
+  margin-left: auto;
+}
+/* Right-aligned text inside block rows */
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -162,12 +168,9 @@ main {
 /* Footer */
 footer {
   margin-top: 1.5rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
   border-top: .01em solid #333;
   padding-top: .5rem;
   color: #888;
-}
-
-/* Right-aligned text inside block rows */
-.right {
-  margin-left: auto;
 }

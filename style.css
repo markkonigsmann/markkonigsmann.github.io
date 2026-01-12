@@ -6,8 +6,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
-
+img{
+  max-height: 100%;
+  object-fit: contain;
+}
 .center {
   max-width: 800px;
   width: 100%;
